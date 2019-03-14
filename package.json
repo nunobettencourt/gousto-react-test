@@ -11,10 +11,10 @@
   },
   "devDependencies": {
     "prettier": "1.16.4",
-    "react-scripts": "^2.1.4"
+    "react-scripts": "^2.1.5"
   },
   "dependencies": {
-    "connected-react-router": "4.5.0",
+    "connected-react-router": "^4.5.0",
     "cross-fetch": "^3.0.1",
     "react": "16.8.3",
     "react-dom": "16.8.3",
@@ -23,7 +23,7 @@
     "react-router-dom": "4.3.1",
     "redux": "4.0.1",
     "redux-thunk": "2.3.0",
-    "sanitize.css": "7.0.3",
+    "sanitize.css": "8.0.0",
     "serve": "10.1.2"
   },
   "browserslist": [
