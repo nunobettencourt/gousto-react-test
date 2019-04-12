@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Link } from 'react-router-dom';
 import About from '../About/About';
-import Home from '../Home/Home';
+import HomeContainer from '../../containers/HomeContainer';
 import './App.css';
 
 class App extends Component {
@@ -14,7 +14,7 @@ class App extends Component {
 				</header>
 
 				<main>
-					<Route exact path="/" component={Home} />
+					<Route exact path="/" component={HomeContainer} />
 					<Route exact path="/about-us" component={About} />
 				</main>
 			</div>
