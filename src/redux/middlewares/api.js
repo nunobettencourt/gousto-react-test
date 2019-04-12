@@ -4,7 +4,6 @@ import { apiEnd, apiError, apiStart } from '../actions';
 
 export const api = ({ dispatch }) => next => action => {
 	if (action.type !== NEW_REQUEST) return next(action);
-
 	const { entity, params, onSuccess, onFailure } = action.payload;
 
 	const endpoint = `${entity}${params}`;
