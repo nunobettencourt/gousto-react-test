@@ -10,12 +10,13 @@
 		"precommit": "pretty-quick --staged"
 	},
 	"devDependencies": {
-		"prettier": "1.16.4",
-		"react-scripts": "^2.1.8",
 		"enzyme": "^3.9.0",
 		"enzyme-adapter-react-16": "^1.11.2",
 		"enzyme-to-json": "^3.3.5",
-		"redux-devtools-extension": "^2.13.8"
+		"prettier": "1.16.4",
+		"react-scripts": "^2.1.8",
+		"redux-devtools-extension": "^2.13.8",
+		"redux-mock-store": "^1.5.3"
 	},
 	"dependencies": {
 		"connected-react-router": "^6.3.2",
@@ -42,5 +43,6 @@
 		"snapshotSerializers": [
 			"enzyme-to-json/serializer"
 		]
-	}
+	},
+	"proxy": "https://api.gousto.co.uk/"
 }
