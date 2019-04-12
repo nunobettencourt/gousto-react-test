@@ -1,0 +1,16 @@
+ul.categoriesList {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	overflow-x: auto;
+	list-style-type: none;
+	margin: 0;
+	padding: 2vh 2vw;
+}
+
+ul.categoriesList li {
+	flex-grow: 1;
+	white-space: nowrap;
+	margin: 0 5px;
+}
