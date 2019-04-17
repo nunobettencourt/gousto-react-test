@@ -1,16 +1,32 @@
 import { connect } from 'react-redux';
-import { push } from 'connected-react-router';
+import _ from 'lodash';
 
 import Home from '../components/Home/Home';
 
 import { fetchCategories, fetchProducts } from '../redux/actions';
 
-const mapStateToProps = state => {
+const getProducts = (products, entity, id) => {
+	switch (entity) {
+		case 'categories':
+			return _.filter(products, { categories: [id] });
+		default:
+			return products;
+	}
+};
+
+const mapStateToProps = (state, ownProps) => {
 	const { categories, products } = state;
+
+	const {
+		match: {
+			params: { id, entity },
+		},
+	} = ownProps;
 
 	return {
 		categories: categories.data,
-		products: products.data,
+		selectedCategory: id,
+		products: getProducts(products.data.products, entity, id),
 	};
 };
 
@@ -19,7 +35,6 @@ export const HomeContainer = connect(
 	{
 		fetchCategories,
 		fetchProducts,
-		changePage: () => push('/about-us'),
 	}
 )(Home);
 

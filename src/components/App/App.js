@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Switch, Route, Link } from 'react-router-dom';
 import About from '../About/About';
 import HomeContainer from '../../containers/HomeContainer';
 import './App.css';
@@ -14,8 +14,14 @@ class App extends Component {
 				</header>
 
 				<main>
-					<Route exact path="/" component={HomeContainer} />
-					<Route exact path="/about-us" component={About} />
+					<Switch>
+						<Route path="/about-us" component={About} />
+						<Route
+							exact
+							path="/:entity?/:id?"
+							component={HomeContainer}
+						/>
+					</Switch>
 				</main>
 			</div>
 		);

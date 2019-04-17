@@ -8,8 +8,8 @@ const Home = props => {
 	const {
 		fetchCategories,
 		fetchProducts,
-		changePage,
 		categories,
+		selectedCategory,
 		products,
 	} = props;
 
@@ -29,14 +29,12 @@ const Home = props => {
 		<div>
 			<h1 className="title">Welcome</h1>
 			<Suspense fallback={<div>Loading...</div>}>
-				<CategoriesList categories={categories} />
-				<ProductsList {...products} />
+				<CategoriesList
+					categories={categories}
+					selected={selectedCategory}
+				/>
+				<ProductsList products={products} />
 			</Suspense>
-			<p>
-				<button onClick={() => changePage()}>
-					Go to About page via router
-				</button>
-			</p>
 		</div>
 	);
 };
@@ -45,7 +43,6 @@ Home.propTypes = {
 	fetchCategories: PropTypes.func.isRequired,
 	fetchProducts: PropTypes.func.isRequired,
 	categories: PropTypes.array.isRequired,
-	products: PropTypes.object,
 };
 
 export default Home;
