@@ -23,6 +23,7 @@ const CategoriesList = ({ categories, selected }) => {
 
 CategoriesList.propTypes = {
 	categories: PropTypes.array.isRequired,
+	selected: PropTypes.string,
 };
 
 export default CategoriesList;
