@@ -11,20 +11,20 @@ describe('Home', () => {
 		{ id: 'fec10d0e-bf7d-11e5-90a9-02fada0dd3b9', title: 'Desserts' },
 	];
 
-	const products = {
-		'0a8e892c-1780-11e6-9f77-0255e2c77e1d': {
+	const products = [
+		{
 			id: '0a8e892c-1780-11e6-9f77-0255e2c77e1d',
 			title: 'Balsajo Black Garlic Cloves',
 		},
-		'0a947ece-c6ab-11e6-8a16-02eaa658c421': {
+		{
 			id: '0a947ece-c6ab-11e6-8a16-02eaa658c421',
 			title: 'Superbake Morning Dreamer Pancakes (GF) (DF)',
 		},
-		'0b1ebb90-8b2e-11e8-b8c7-02a4637b1c98': {
+		{
 			id: '0b1ebb90-8b2e-11e8-b8c7-02a4637b1c98',
 			title: 'OXO Good Grips Garlic Press Black',
 		},
-	};
+	];
 
 	test('renders without crashing', () => {
 		shallow(
