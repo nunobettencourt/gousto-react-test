@@ -26,7 +26,7 @@ const mapStateToProps = (state, ownProps) => {
 	return {
 		categories: categories.data,
 		selectedCategory: id,
-		products: getProducts(products.data.products, entity, id),
+		products: getProducts(products.data, entity, id),
 	};
 };
 

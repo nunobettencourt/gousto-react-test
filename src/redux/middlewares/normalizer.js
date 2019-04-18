@@ -45,7 +45,7 @@ export const normalizer = () => next => action => {
 
 	next({
 		...action,
-		data: normalizedData.entities,
+		data: normalizedData.entities.products,
 	});
 };
 
