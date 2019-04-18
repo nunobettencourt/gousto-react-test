@@ -1,6 +1,8 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
 import PropTypes from 'prop-types';
 
+import SearchBox from '../SearchBox/SearchBox';
+
 const CategoriesList = lazy(() => import('../CategoriesList/CategoriesList'));
 const ProductsList = lazy(() => import('../ProductsList/ProductsList'));
 
@@ -33,7 +35,9 @@ const Home = props => {
 					categories={categories}
 					selected={selectedCategory}
 				/>
-				<ProductsList products={products} />
+				<SearchBox products={products}>
+					<ProductsList />
+				</SearchBox>
 			</Suspense>
 		</div>
 	);
@@ -43,6 +47,7 @@ Home.propTypes = {
 	fetchCategories: PropTypes.func.isRequired,
 	fetchProducts: PropTypes.func.isRequired,
 	categories: PropTypes.array.isRequired,
+	products: PropTypes.object.isRequired,
 };
 
 export default Home;
