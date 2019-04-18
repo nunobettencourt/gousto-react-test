@@ -47,7 +47,7 @@ Home.propTypes = {
 	fetchCategories: PropTypes.func.isRequired,
 	fetchProducts: PropTypes.func.isRequired,
 	categories: PropTypes.array.isRequired,
-	products: PropTypes.array.isRequired,
+	products: PropTypes.any.isRequired,
 };
 
 export default Home;
