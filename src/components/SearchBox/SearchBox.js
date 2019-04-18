@@ -5,7 +5,9 @@ const SearchBox = ({ products, children }) => {
 	const [term, setTerm] = useState('');
 
 	const filteredProducts = term
-		? filter(products, product => product.title.includes(term))
+		? filter(products, product =>
+				product.title.toLowerCase().includes(term.toLocaleLowerCase())
+		  )
 		: products;
 
 	return (
