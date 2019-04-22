@@ -51,6 +51,7 @@ describe('api actions', () => {
 	});
 
 	test('dispatches apiAction correctly', () => {
+		const onStart = jest.fn();
 		const onSuccess = jest.fn();
 		const onFailure = jest.fn();
 
@@ -60,6 +61,7 @@ describe('api actions', () => {
 				payload: {
 					entity: 'entity',
 					params: 'params',
+					onStart,
 					onSuccess,
 					onFailure,
 				},
@@ -70,6 +72,7 @@ describe('api actions', () => {
 			actions.apiAction({
 				entity: 'entity',
 				params: 'params',
+				onStart,
 				onSuccess,
 				onFailure,
 			})

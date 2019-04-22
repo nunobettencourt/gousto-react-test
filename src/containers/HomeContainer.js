@@ -27,6 +27,7 @@ const mapStateToProps = (state, ownProps) => {
 		categories: categories.data,
 		selectedCategory: id,
 		products: getProducts(products.data, entity, id),
+		isLoading: products.loading,
 	};
 };
 

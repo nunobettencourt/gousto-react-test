@@ -4,7 +4,7 @@ import {
 	CATEGORIES_FETCH_FAILED,
 } from '../actions/types';
 
-const INITIAL_STATE = { loading: null, error: null, data: [] };
+const INITIAL_STATE = { loading: false, error: null, data: [] };
 
 const categoriesReducer = (state = INITIAL_STATE, { type, data }) => {
 	switch (type) {

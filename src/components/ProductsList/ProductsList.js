@@ -5,17 +5,21 @@ import ProductDetail from '../ProductDetail/ProductDetail';
 
 import './ProductsList.styles.css';
 
-const ProductsList = ({ products }) => {
+const ProductsList = ({ products, isLoading }) => {
 	return (
 		<div className="products-list">
-			{_.filter(products, product => product.is_for_sale).map(
-				({ id, title, description }) => (
-					<ProductDetail
-						key={id}
-						id={id}
-						title={title}
-						description={description}
-					/>
+			{!isLoading && _.isEmpty(products) ? (
+				<div>No items found</div>
+			) : (
+				_.filter(products, product => product.is_for_sale).map(
+					({ id, title, description }) => (
+						<ProductDetail
+							key={id}
+							id={id}
+							title={title}
+							description={description}
+						/>
+					)
 				)
 			)}
 		</div>

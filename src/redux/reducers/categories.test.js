@@ -10,7 +10,7 @@ describe('Categories reducer', () => {
 	describe('INITIAL_STATE', () => {
 		test('is correct', () => {
 			const action = { type: 'DUMMY_ACTION' };
-			const INITIAL_STATE = { loading: null, error: null, data: [] };
+			const INITIAL_STATE = { loading: false, error: null, data: [] };
 
 			expect(categoriesReducer(undefined, action)).toEqual(INITIAL_STATE);
 		});

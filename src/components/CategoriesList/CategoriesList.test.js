@@ -1,26 +1,35 @@
+import { BrowserRouter as Router } from 'react-router-dom';
 import CategoriesList from './CategoriesList';
 
+let wrapper;
+
 const categories = [
-	{
-		id: 'faeedf8a-bf7d-11e5-a0f9-02fada0dd3b9',
-		title: 'Drinks Cabinet',
-	},
-	{
-		id: '529ea59e-bf7e-11e5-840e-02fada0dd3b9',
-		title: 'Kitchenware',
-	},
-	{ id: 'fec10d0e-bf7d-11e5-90a9-02fada0dd3b9', title: 'Desserts' },
-	{
-		id: '01b06fa0-bf7e-11e5-9c1e-02fada0dd3b9',
-		title: 'Food Cupboard',
-	},
-	{ id: '17eb3f8e-bf7e-11e5-ab63-02fada0dd3b9', title: 'Snacks' },
+	{ id: '1', title: 'Drinks Cabinet' },
+	{ id: '2', title: 'Kitchenware' },
+	{ id: '3', title: 'Desserts' },
+	{ id: '4', title: 'Food Cupboard' },
+	{ id: '5', title: 'Snacks' },
 ];
 
-const selected = '529ea59e-bf7e-11e5-840e-02fada0dd3b9';
+beforeAll(() => {
+	wrapper = mount(
+		<Router>
+			<CategoriesList categories={categories} selected="4" />
+		</Router>
+	);
+});
 
 describe('CategoriesList component', () => {
-	test('renders without crashing', () => {
-		shallow(<CategoriesList categories={categories} selected={selected} />);
+	test('has class "categories-list"', () => {
+		expect(wrapper.find('.categories-list').length).toEqual(1);
+	});
+
+	test('renders all items in the list', () => {
+		expect(wrapper.find('li').length).toEqual(5);
+		expect(wrapper.find('Link').length).toEqual(5);
+	});
+
+	test('selected item has correct class', () => {
+		expect(wrapper.find('.selected').length).toEqual(1);
 	});
 });

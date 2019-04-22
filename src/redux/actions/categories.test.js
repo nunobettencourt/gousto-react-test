@@ -18,7 +18,7 @@ describe('Categories actions', () => {
 			},
 		];
 
-		store.dispatch(actions.fetchSuccess(mockData));
+		store.dispatch(actions.categoriesFetchSuccess(mockData));
 		expect(store.getActions()).toEqual(expectedActions);
 	});
 });

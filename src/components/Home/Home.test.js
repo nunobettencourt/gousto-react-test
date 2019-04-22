@@ -1,5 +1,4 @@
 import Home from './Home';
-import CategoriesList from '../CategoriesList/CategoriesList';
 
 describe('Home', () => {
 	const fetchCategories = jest.fn();
@@ -48,6 +47,5 @@ describe('Home', () => {
 		);
 
 		expect(wrapper.find('SearchBox').length).toEqual(1);
-		expect(wrapper.find('CategoriesList').length).toEqual(1);
 	});
 });

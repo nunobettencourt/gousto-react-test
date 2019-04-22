@@ -14,6 +14,7 @@ export const apiError = error => ({ type: REQUEST_ERROR, error });
 export const apiAction = ({
 	entity = '',
 	params = '',
+	onStart = () => {},
 	onSuccess = () => {},
 	onFailure = () => {},
 }) => {
@@ -22,6 +23,7 @@ export const apiAction = ({
 		payload: {
 			entity,
 			params,
+			onStart,
 			onSuccess,
 			onFailure,
 		},

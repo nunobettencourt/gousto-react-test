@@ -6,18 +6,20 @@ import './CategoriesList.styles.css';
 
 const CategoriesList = ({ categories, selected }) => {
 	return (
-		<ul className="categories-list">
-			{categories
-				.filter(category => category.hidden === false)
-				.map(({ id, title }) => (
-					<li
-						key={id}
-						className={selected === id ? 'selected' : null}
-					>
-						<Link to={`/categories/${id}`}>{title}</Link>
-					</li>
-				))}
-		</ul>
+		<div className="categories-list">
+			<ul>
+				{categories
+					//.filter(category => category.hidden === false)
+					.map(({ id, title }) => (
+						<li
+							key={id}
+							className={selected === id ? 'selected' : null}
+						>
+							<Link to={`/categories/${id}`}>{title}</Link>
+						</li>
+					))}
+			</ul>
+		</div>
 	);
 };
 

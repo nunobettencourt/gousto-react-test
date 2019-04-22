@@ -13,6 +13,7 @@ const Home = props => {
 		categories,
 		selectedCategory,
 		products,
+		isLoading,
 	} = props;
 
 	const [initialized, setInitialized] = useState(false);
@@ -28,14 +29,14 @@ const Home = props => {
 	});
 
 	return (
-		<div className="homePage">
+		<div className="home-page">
 			<Suspense fallback={<div>Loading...</div>}>
 				<CategoriesList
 					categories={categories}
 					selected={selectedCategory}
 				/>
 				<div className="main-content">
-					<SearchBox products={products}>
+					<SearchBox products={products} isLoading={isLoading}>
 						<ProductsList />
 					</SearchBox>
 				</div>

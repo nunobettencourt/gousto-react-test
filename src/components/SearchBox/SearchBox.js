@@ -3,7 +3,7 @@ import { filter } from 'lodash';
 
 import './SearchBox.styles.css';
 
-const SearchBox = ({ products, children }) => {
+const SearchBox = ({ products, isLoading, children }) => {
 	const [term, setTerm] = useState('');
 
 	const filteredProducts = term
@@ -21,7 +21,10 @@ const SearchBox = ({ products, children }) => {
 				value={term}
 				onChange={e => setTerm(e.target.value)}
 			/>
-			{React.cloneElement(children, { products: filteredProducts })}
+			{React.cloneElement(children, {
+				products: filteredProducts,
+				isLoading: isLoading,
+			})}
 		</div>
 	);
 };
