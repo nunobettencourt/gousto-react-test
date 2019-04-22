@@ -28,16 +28,17 @@ const Home = props => {
 	});
 
 	return (
-		<div>
-			<h1 className="title">Welcome</h1>
+		<div className="homePage">
 			<Suspense fallback={<div>Loading...</div>}>
 				<CategoriesList
 					categories={categories}
 					selected={selectedCategory}
 				/>
-				<SearchBox products={products}>
-					<ProductsList />
-				</SearchBox>
+				<div className="main-content">
+					<SearchBox products={products}>
+						<ProductsList />
+					</SearchBox>
+				</div>
 			</Suspense>
 		</div>
 	);

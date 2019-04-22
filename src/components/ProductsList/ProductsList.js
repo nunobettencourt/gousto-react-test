@@ -7,7 +7,7 @@ import './ProductsList.styles.css';
 
 const ProductsList = ({ products }) => {
 	return (
-		<div className="productsList">
+		<div className="products-list">
 			{_.filter(products, product => product.is_for_sale).map(
 				({ id, title, description }) => (
 					<ProductDetail

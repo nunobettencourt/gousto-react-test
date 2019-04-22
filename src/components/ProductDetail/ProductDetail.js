@@ -7,16 +7,14 @@ const ProductDetail = ({ title, description }) => {
 	const [isDisplayed, toggleDisplay] = useState(false);
 
 	return (
-		<div className="productDetail">
+		<div className="product-detail">
 			<div
 				onClick={() => toggleDisplay(!isDisplayed)}
-				className={`productTitle ${isDisplayed ? 'selected' : null}`}
+				className={`title ${isDisplayed ? 'selected' : ''}`}
 			>
 				{title}
 			</div>
-			{isDisplayed && (
-				<div className="productDescription">{description}</div>
-			)}
+			{isDisplayed && <div className="description">{description}</div>}
 		</div>
 	);
 };

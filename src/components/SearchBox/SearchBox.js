@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { filter } from 'lodash';
 
+import './SearchBox.styles.css';
+
 const SearchBox = ({ products, children }) => {
 	const [term, setTerm] = useState('');
 
@@ -11,15 +13,16 @@ const SearchBox = ({ products, children }) => {
 		: products;
 
 	return (
-		<>
+		<div className="search-box">
 			<input
 				type="text"
 				id="search_box"
+				placeholder="find products"
 				value={term}
 				onChange={e => setTerm(e.target.value)}
 			/>
 			{React.cloneElement(children, { products: filteredProducts })}
-		</>
+		</div>
 	);
 };
 

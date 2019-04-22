@@ -1,4 +1,6 @@
-ul.categoriesList {
+ul.categories-list {
+	position: fixed;
+	top: 54px;
 	width: 100%;
 	display: flex;
 	flex-direction: row;
@@ -6,11 +8,26 @@ ul.categoriesList {
 	overflow-x: auto;
 	list-style-type: none;
 	margin: 0;
-	padding: 2vh 2vw;
+	padding: 12px 0 0;
+	background-color: #ffffff;
+	border-bottom: 2px solid #eaebec;
 }
 
-ul.categoriesList li {
+ul.categories-list > li {
 	flex-grow: 1;
+	display: list-item;
 	white-space: nowrap;
-	margin: 0 5px;
+	padding: 10px;
+	line-height: 20px;
+	font-size: 14px;
+}
+
+ul.categories-list > li.selected {
+	border-bottom: 2px solid #f6323e;
+	color: #f6323e;
+}
+
+ul.categories-list > li > a,
+ul.categories-list > li > a:visited {
+	color: #333d47;
 }

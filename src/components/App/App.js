@@ -7,8 +7,9 @@ import './App.css';
 class App extends Component {
 	render() {
 		return (
-			<div>
+			<>
 				<header className="navBar">
+					<h1 className="title">Gousto</h1>
 					<Link to="/">Home</Link>
 					<Link to="/about-us">About</Link>
 				</header>
@@ -23,7 +24,7 @@ class App extends Component {
 						/>
 					</Switch>
 				</main>
-			</div>
+			</>
 		);
 	}
 }

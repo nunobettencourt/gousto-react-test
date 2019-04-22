@@ -6,7 +6,7 @@ import './CategoriesList.styles.css';
 
 const CategoriesList = ({ categories, selected }) => {
 	return (
-		<ul className="categoriesList">
+		<ul className="categories-list">
 			{categories
 				.filter(category => category.hidden === false)
 				.map(({ id, title }) => (

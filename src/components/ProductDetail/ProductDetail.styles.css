@@ -1,0 +1,10 @@
+.product-detail {
+	background-color: #ffffff;
+	margin: 2px 0;
+	border: 1px solid #d6d8da;
+	padding: 5px;
+}
+
+.product-detail .description {
+	font-size: 0.9em;
+}
