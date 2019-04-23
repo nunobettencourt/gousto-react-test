@@ -1,8 +1,84 @@
 # Gousto coding test
 
-Hi there! We prepared a technical task so we can get to know you better. Below you will find scenarios and further details on what this task is about.
+Hi there!
 
-If anything is unclear or you have any questions, feel free to get back to us. We want to make our technical task a pleasant experience so feel free to give us any feedback on this exercise.
+My solution has the original codebase as a starting point. Initially I updated the folder structure, version of some existing packages and added Enzyme to help with the testing coverage. Afterwards, I added a setupTests file in order to configure the test environment and global variables that would later be used in each of the unit tests. I then added some basic components and their respective tests before diving into the redux part of the application, more precisely, setting up categories and products reducers, action creators and tests.
+
+A middleware responsible to catching all actions API related was added so that the actions creators were free of any request logic. As soon as it was implemented, I updated all the action creators.
+
+Once there was duplicate data in both categories and products responses, namely the categories in each of the product’s details, I added a normalizer middleware to remove the unnecessary data before adding it to the products reducer.
+
+I then started connecting the components to the state, by adding a stateful container for the Home component and updated the categories and products list components to render the real data as well as their CSS styles.
+
+The SearchBox component was the last to be added and it was built as a parent to the ProductsList component in order to filter the data that’s passed on.
+
+Finally, I updated the test suites and cleaned some unused code.
+
+## Application Structure
+
+```
+gousto-react-test/
+  README.md
+  node_modules/
+  package.json
+  public/
+    index.html
+    favicon.ico
+  src/
+    components/
+      About/
+        About.js
+        About.css
+        About.test.js
+      App/
+        App.css
+        App.js
+      CategoriesList/
+        CategoriesList.js
+        CategoriesList.styles.css
+        CategoriesList.test.js
+      Home/
+        Home.js
+        Home.test.js
+      ProductsDetail/
+        ProductsDetail.js
+        ProductsDetail.styles.css
+        ProductsDetail.test.js
+      ProductsList/
+        ProductsList.js
+        ProductsList.styles.css
+        ProductsList.test.js
+      SearchBox/
+        SearchBox.js
+        SearchBox.styles.css
+        SearchBox.test.js
+    containers/
+      HomeContainer.js
+    redux/
+      actions/
+        api.js
+        api.test.js
+        categories.js
+        categories.test.js
+        index.js
+        products.js
+        products.test.js
+        types.js
+      middlewares/
+        api.js
+        normalizer,js
+      reducers/
+        categories.js
+        categories.test.js
+        index.js
+        products.js
+        products.test.js
+      store.js
+    index.js
+    index.css
+    setupTests.js
+```
+
 
 ## How to use:
 
@@ -18,83 +94,12 @@ If anything is unclear or you have any questions, feel free to get back to us. W
 * `yarn build` - build the production artifacts
 * `yarn test` - running the tests
 
-## How to deliver your assessment
+## Missing functional requirements
 
-* Please fork/clone this repository to your own version control platform (GitHub, GitLab, BitBucket, etc.) and send us the link to it
-* We will pay attention to the commits to see how the work was structured
+i don't think I've missed any of the functional requirements.
 
-## Functional requirements
+## Imporvements
 
-### Task 1: As a user I want to see all available product categories
-  
-  * Given that I am a user
-  * When I land on the main page
-  * Then I can see the categories of products
+I would have liked to have more test coverage and probably optimize some of the code
+namely in terms of the lazy components and fallback and data normalisation.
 
-### Task 2: As a user I want to see a list of products titles
- 
-  * Given that I am a user
-  * When I land on the main page
-  * Then I can see a list of products titles
-
-### Task 3: As a user I want to see the products for the selected category
- 
-  * Given that I am a user
-  * When I land on the main page view
-  * And I click on 'Drinks Cabinet' category
-  * Then I can see a list of products belonging to that category
-  * And the selected category is bold
-
-### Task 4: As a user I want to be able to search in the product title and description
-  
-  * Given that I am a user and I land on the 'Drinks Cabinet'
-  * When I type ' serv' in the input search
-  * Then the products matching the search input in title and/or description are shown below
-
-### Task 5: As a user I want to be able to see the product description when I click on the product name
-  
-  * Given that I am a user and I land on main page
-  * When I click on 'Borsao Macabeo'
-  * Then I can see the description appearing below and the title is bold
-  * When I click again on the 'Borsao Macabeo'
-  * Then I can see that the description is hidden
-  * When I click on multiple products
-  * Then all the clicked products descriptions are visible
-
-### Task 6: As a user I want to be able to navigate with the browser's native back and forward buttons
-  
-  * Given that I am a user
-  * When I am on the 'Drinks Cabinet' category
-  * And I click on 'Large Alcohol' category
-  * Then I can click on the back button from the browser
-  * And I can see the 'Drinks Cabinet' category selected
-  * Then I click forward button
-  * And I can see the 'Large Alcohol' category selected
-
-#### API endpoints:
-
-* To get the categories: https://api.gousto.co.uk/products/v2.0/categories
-* To get the products: https://api.gousto.co.uk/products/v2.0/products?includes[]=categories&image_sizes[]=365
-* For cross origin accessibility you can use [cross-fetch](https://www.npmjs.com/package/cross-fetch) that is already installed in package.json.
-
-## Non-Functional Requirements 
-
-* UI should be built with React, but you are allowed to use additional other libraries if needed
-* Use your preferred library for state management (Redux dependencies are already set up, but you can use what you want)
-* Use your preferred CSS solution/library. Use your imagination, but do not spend to much time for css
-* The application should be responsive (the application can be used on mobile)
-* The code should be production ready (i.e. include tests)
-
-## Help us to understand your solution
-
-* In order to understand better you solution we would like to see the following sections in a Readme:
-    * `How to use`: details about how to use your solution(if anything different from what we added)
-    * `Application structure`: explain the architecture - feel free to change the base structure from this test
-    * `A list of missing functional requirements`: if any, and explain why you didn't complete them
-    * `Possible improvements/ functionality`: anything that you wished you could've added if you had more time
-
-## Visuals
-
-![Image1](./public/first.png)
-![Image2](./public/second.png)
-![Image3](./public/third.png)
